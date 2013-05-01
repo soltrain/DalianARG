@@ -1,0 +1,4 @@
+Options All -Indexes
+AddType application/x-httpd-php .htm .html
+Order allow,deny
+Allow from all
