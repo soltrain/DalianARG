@@ -13,7 +13,7 @@ $date=date( 'F jS, Y g:i:s a e' );
 function makeTheText()
 {
     global $pnumber;
-    echo 'Sending Text</br>';
+  //  echo 'Sending Text</br>';
    // shell_exec('/Users/soltrain/Documents/DalianARG/xt.sh $pnumber' . "> /dev/null 2>/dev/null &" );
    // $PID = shell_exec("nohup /Users/soltrain/Documents/DalianARG/text.sh $pnumber > /dev/null & echo $!");
    //$PID = shell_exec("/Users/soltrain/Documents/DalianARG/text.sh 13478711794  2>&1");
@@ -24,7 +24,7 @@ function makeTheText()
 function makeTheCall()
 {
     global $pnumber;
-    echo 'Making Call</br>';
+   // echo 'Making Call</br>';
     $PID = shell_exec("/Users/soltrain/Sites/DalianARG/call.sh $pnumber > /dev/null 2>/dev/null & ");
   /* code to call from php rather than from the script  
     global $pnumber;
@@ -64,21 +64,23 @@ function makeTheCall()
 
 if ($freq <= 0 OR $power <= 0)
 {
-    echo "Frequency and Power must be integers greater than 0</br>";
+    //echo "Frequency and Power must be integers greater than 0</br>";
+    echo "频率和功率至少大于零";
     echo "<meta http-equiv='refresh' content='3; control.html' />";
     die;
 }
 
 if ( empty($message) )
 {
-    echo "Message to transmit cannot be empty: 无字";
+   // echo "Message to transmit cannot be empty: 无字";
+    echo "信息传播不能空白";
     echo "<meta http-equiv='refresh' content='3; control.html' />";
     die;
 }
 
-if ($message == "magic")
+if ( ($message == "2.4231") AND ($freq == "443") AND ($power == "3") )
 {
-    echo "Doing Magic Stuff.</br>";
+   // echo "Doing Magic Stuff.</br>";
     $fp = fopen("correctentries.txt", "a") or die('ERROR:Could not open file!');
     $savestring = "$pnumber, $date\n";
     fwrite($fp, $savestring);
@@ -90,7 +92,7 @@ if ($message == "magic")
 
 else
 {
-    echo "No magic here.";
+   // echo "No magic here.";
     $fp = fopen("failedentries.txt", "a") or die('ERROR:Could not open file!');
     $savestring = "$pnumber, $message, $date \n";
     fwrite($fp, $savestring);
@@ -98,7 +100,7 @@ else
 }
 
 echo "Freq: $freq <br/> Power: $power <br/> Message: $message";
-echo "<br/> User Phone number: $pnumber";
-echo "<h1>Your data has been transmitted sucessfully</h1>";
+//echo "<br/> User Phone number: $pnumber";
+echo "<h1>你的信息传播成功！</h1>";
 
 ?>
