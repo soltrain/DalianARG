@@ -35,8 +35,8 @@ function makeTheCall()
     // Twilio REST API version
     $version = "2010-04-01"; 
     // Set our Account SID and AuthToken
-    $sid = 'AC6d1e6f7497f9f28b227762c9c4656280';
-    $token = '479b4c1e185f75db874e83035f9ba470';
+    $sid = '***';
+    $token = '***';
     // A phone number you have previously validated with Twilio
     $twilionumber = '4157499876';
     // Instantiate a new Twilio Rest Client
@@ -99,7 +99,7 @@ else
     fclose($fp);
 }
 
-echo "Freq: $freq <br/> Power: $power <br/> Message: $message";
+echo "频率: $freq <br/> 功率: $power <br/> 信息传播: $message";
 //echo "<br/> User Phone number: $pnumber";
 echo "<h1>你的信息传播成功！</h1>";
 

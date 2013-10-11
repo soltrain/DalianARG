@@ -1,0 +1,6 @@
+things to change when uploading to EC2
+
+transmit
+/home/ubuntu/text.sh
+
+move text and call to home dir
